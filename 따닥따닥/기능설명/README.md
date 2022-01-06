@@ -14,43 +14,7 @@
 
 * 위에 로고를 누르면 메인 페이지로 이동 
 
- <img src="md-images/clip_image002-16414495948361.png" align="left">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ <img src="md-images/clip_image002-16414495948361.png" align="left"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## 1-2 로그인
 
