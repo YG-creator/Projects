@@ -1,4 +1,4 @@
-- [1. 회원관리](#1-----)
+- [1. 회원관리](#1. 회원관리)
   * [1-1  회원가입](#1-1------)
   * [1-2 로그인](#1-2----)
   * [1-3 아이디 찾기](#1-3-------)
@@ -12,7 +12,7 @@
 - [4. 챗봇](#4---)
 - [5. 기타](#5---)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+<br>
 
 # 1. 회원관리
 
