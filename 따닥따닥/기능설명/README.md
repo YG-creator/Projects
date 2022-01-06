@@ -1,5 +1,9 @@
 [TOC]
 
+[1. 회원관리](#1. 회원관리)
+
+[5. 기타](#5. 기타)
+
 # 1. 회원관리
 
 ## 1-1  회원가입
@@ -232,7 +236,7 @@
 
 * alert 후 병원 리뷰 페이지로 이동
 
- <img src="md-images/clip_image051.png" align="left"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <img src="md-images/clip_image051.png" align="left"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
