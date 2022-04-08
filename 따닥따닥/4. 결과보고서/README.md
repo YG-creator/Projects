@@ -312,7 +312,7 @@ d.   병원에 있는 로컬 영역의 데이터도 받아올 수 있게 된다�
   * [아이디어 회의자료](https://gitmind.com/app/doc/fa2809efc36f44cd1804b4b5b966d570)
   * [일정관리](https://docs.google.com/spreadsheets/d/1yhoqqcfYHeBAAwZfJauhKBIfSHekVYzk02yUMmVMLhY/edit#gid=1801751892)
   * [피드백](https://docs.google.com/document/d/1sMpEg205QDxuk8vbFuyLquK1Qj-najVisCsdzvPu_aA/edit)
-  * [챗봇 질문 답변]((https://docs.google.com/spreadsheets/d/1NJt0shln92tClU4g6miSlHxHow1RB7Zs3O22pVf4vp0/edit#gid=0))
+  * [챗봇 질문 답변](https://docs.google.com/spreadsheets/d/1NJt0shln92tClU4g6miSlHxHow1RB7Zs3O22pVf4vp0/edit?usp=sharing)
 
 * 데이터 제공
   * 공공데이터포털(data.go.kr)	
