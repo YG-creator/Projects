@@ -333,7 +333,7 @@ d.   병원에 있는 로컬 영역의 데이터도 받아올 수 있게 된다�
   * 모두의 네트워크 - 미즈구치 카츠야, 길벗
   * HTML5 웹 프로그래밍 입문 - 윤인성, 한빛아카데미
 * 참고 사이트
-  * docs.oracle.com - 자바 관련
-  * developer.mozilla.org - JavaScript, CSS 관련
+  * [docs.oracle.com](developer.mozilla.org) - 자바 관련
+  * [developer.mozilla.org](developer.mozilla.org) - JavaScript, CSS 관련
   * [navermaps.github.io/maps.js/docs/tutorial-2-Marker.html](https://navermaps.github.io/maps.js/docs/tutorial-2-Marker.html) - 네이버 마커
-  * api.ncloud-docs.com/docs/ai-naver-mapsgeocoding-네이버맵위도,경도
+  * [api.ncloud-docs.com/docs/ai-naver-mapsgeocoding](api.ncloud-docs.com/docs/ai-naver-mapsgeocoding)-네이버맵위도,경도
