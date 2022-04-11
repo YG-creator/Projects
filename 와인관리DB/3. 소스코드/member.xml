@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+	<insert id="insertField"  parameterType="fieldVO">
+		<![CDATA[
+		 insert into field(field_ID,location,area,variety) 
+		 values(#{field_ID},#{location},#{area},#{variety})
+		]]>      
+	</insert>
+	
+	<insert id="insertVineyard"  parameterType="vineyardVO">
+		<![CDATA[
+		 insert into vineyard 
+		 values(#{vineyard_ID},#{owner},#{address},#{tel_number},
+		 #{inv_white},#{inv_red},#{money})
+		]]>      
+	</insert>
+	
+	<insert id="insertWinery"  parameterType="wineryVO">
+		<![CDATA[
+		 insert into winery 
+		 values(#{winery_ID},#{owner},#{address},#{tel_number},
+		 #{inv_white},#{inv_red},#{money},#{grade_ID},#{vineyard_ID})
+		]]>      
+	</insert>
+	
+	<insert id="insertWineCategory"  parameterType="wineCategoryVO">
+		<![CDATA[
+		 insert into winecategory
+		 values(#{category_ID},#{title},#{standardPrice})
+		]]>      
+	</insert>
+	
+	<insert id="insertWineGrade"  parameterType="wineGradeVO">
+		<![CDATA[
+		 insert into winegrade 
+		 values(#{grade_ID},#{title},#{ratio})
+		]]>      
+	</insert>
+	
+	<select id="selectEmptyField"  resultType="fieldVO">
+		<![CDATA[
+		 select * from field 
+		 where vineyard_ID = 'empty'
+		]]>      
+	</select>
+	
+	<update id="updateFieldVineyardID" parameterType="java.util.HashMap">
+		<![CDATA[
+		 update field set vineyard_ID = #{vineyard_ID}
+		where field_ID = #{field_ID}
+		]]>  
+	</update>
+	
+	<select id="selectAllVineyard"  resultType="vineyardVO">
+		<![CDATA[
+		 select * from vineyard
+		]]>      
+	</select>
+	
+	<select id="selectVineyardById"  parameterType="String" resultType="vineyardVO">
+		<![CDATA[
+		 select * from vineyard
+		 where vineyard_ID = #{vineyard_ID}
+		]]>      
+	</select>
+
+	<update id="vineyardUpdateById" parameterType="vineyardVO">
+		<![CDATA[
+		 update vineyard set owner=#{owner},address=#{address},tel_number=#{tel_number},
+		 inv_white=#{inv_white},inv_red=#{inv_red},money=#{money}
+		where vineyard_ID = #{vineyard_ID}
+		]]>  
+	</update>
+	
+	<select id="selectFieldById"  parameterType="String" resultType="fieldVO">
+		<![CDATA[
+		 select * from field
+		 where field_ID = #{field_ID}
+		]]>      
+	</select>
+	
+	<update id="fieldUpdateById" parameterType="fieldVO">
+		<![CDATA[
+		 update field set field_ID=#{field_ID},location=#{location},area=#{area},
+		 variety=#{variety},vineyard_ID=#{vineyard_ID}
+		 where field_ID = #{field_ID}
+		]]>  
+	</update>
+	
+	<select id="selectAllfield"  resultType="fieldVO">
+		<![CDATA[
+		 select * from field
+		]]>      
+	</select>
+	
+	<insert id="insertGP"  parameterType="grapeProductionVO">
+		<![CDATA[
+		 insert into grapeproduction
+		 values(#{GP_ID},#{year},#{amount},#{field_ID})
+		]]>      
+	</insert>
+	
+	<select id="selectGPByField"  parameterType="String" resultType="grapeProductionVO">
+		<![CDATA[
+		 select * from grapeproduction 
+		 where field_ID = #{field_ID}
+		]]>      
+	</select>
+	
+	<select id="selectByGPID"  parameterType="String" resultType="grapeProductionVO">
+		<![CDATA[
+		 select * from grapeproduction 
+		 where GP_ID = #{GP_ID}
+		]]>      
+	</select>
+	
+	<update id="GPUpdate" parameterType="grapeProductionVO">
+		<![CDATA[
+		 update grapeproduction set year=#{year},amount=#{amount},field_ID=#{field_ID}
+		where GP_ID=#{GP_ID}
+		]]>  
+	</update>
+	
+	<select id="selectWineyrById"  parameterType="String" resultType="wineryVO">
+		<![CDATA[
+		 select * from winery 
+		 where winery_ID = #{winery_ID}
+		]]>      
+	</select>
+	
+	<select id="selectAllWinery"  parameterType="String" resultType="wineryVO">
+		<![CDATA[
+		 select * from winery 
+		]]>      
+	</select>
+	
+	<update id="wineryUpdate" parameterType="wineryVO">
+		<![CDATA[
+		 update winery set owner=#{owner},address=#{address},tel_number=#{tel_number},
+		 inv_white=#{inv_white},inv_red=#{inv_red},money=#{money},grade_ID=#{grade_ID},vineyard_ID=#{vineyard_ID}
+		where winery_ID=#{winery_ID}
+		]]>  
+	</update>
+	
+	<select id="selectTradeSumByID"  parameterType="String" resultType="tradeSumVO">
+		<![CDATA[
+		select category_ID, sum(amount)as amount from winetrade 
+		where winery_ID=#{winery_ID} group by category_ID
+		]]>      
+	</select>
+	
+	<select id="selectProductSumByID"  parameterType="String" resultType="productionSumVO">
+		<![CDATA[
+		 select category_ID, sum(amount)as amount from wineproduction
+		 where winery_ID=#{winery_ID} group by category_ID
+		]]>      
+	</select>
+	
+	<select id="selectInventorySumByID"  parameterType="String" resultType="inventorySumVO">
+		<![CDATA[
+		 select category_ID, sum(amount)as amount from wineinventory 
+		 where winery_ID=#{winery_ID} group by category_ID
+		]]>      
+	</select>
+	
+	<select id="selectProductSumByYear"  parameterType="String" resultType="productionSumVO">
+		<![CDATA[
+		 select category_ID, sum(amount) as amount from wineproduction 
+		 where year = #{year}
+		 group by category_ID 
+		]]>      
+	</select>
+	
+	<select id="selectTradeSumByYear"  parameterType="String" resultType="tradeSumVO">
+		<![CDATA[
+		 select category_ID, sum(amount) as amount from winetrade 
+		 where year = #{year}
+		 group by category_ID 
+		]]>      
+	</select>
+	
+	<insert id="insertWP"  parameterType="WPVO">
+		<![CDATA[
+		 insert into wineproduction 
+		 values(#{WP_ID},#{category_ID},#{year},#{amount},#{winery_ID})
+		]]>      
+	</insert>
+	
+	<insert id="insertWI"  parameterType="WPVO">
+		<![CDATA[
+		 insert into wineinventory(category_ID,amount,winery_ID)
+		 values(#{category_ID},#{amount},#{winery_ID})
+		]]>      
+	</insert>
+	
+	<insert id="insertWI1"  parameterType="WTVO">
+		<![CDATA[
+		 insert into wineinventory(category_ID,amount,winery_ID)
+		 values(#{category_ID},-#{amount},#{winery_ID})
+		]]>      
+	</insert>
+	
+	<insert id="insertWT"  parameterType="WTVO">
+		<![CDATA[
+		 insert into winetrade 
+		 values(#{WT_ID},#{category_ID},#{year},#{amount},#{winery_ID})
+		]]>      
+	</insert>
+	
+	<select id="selectvineyardByWineryId"  parameterType="String" resultType="vineyardVO">
+		<![CDATA[
+		 select * from vineyard 
+		 where vineyard_ID=(select vineyard_ID from winery where winery_ID = #{winery_ID});
+		]]>      
+	</select>
+	
+	<update id="sellGrape" parameterType="buyGrapeVO">
+		<![CDATA[
+		 update vineyard set inv_white=inv_white-#{inv_white}, inv_red=inv_red-#{inv_red}, money=money+#{inv_white}+#{inv_red} 
+		 where vineyard_ID=(select vineyard_ID from winery where winery_ID = #{winery_ID});
+		]]>  
+	</update>
+	
+	<update id="buyGrape" parameterType="buyGrapeVO">
+		<![CDATA[
+		  update winery set inv_white=inv_white+#{inv_white}, inv_red=inv_red+#{inv_red}, money=money-#{inv_white}-#{inv_red} 
+		 where winery_ID=#{winery_ID};
+		]]>  
+	</update>
+	
+	
+	<select id="selectWPByWineryId"  parameterType="String" resultType="WPVO">
+		<![CDATA[
+		 select * from wineproduction 
+		 where winery_ID=#{winery_ID}
+		]]>      
+	</select>
+	
+	<select id="selectWTByWineryId"  parameterType="String" resultType="WTVO">
+		<![CDATA[
+		 select * from winetrade
+		 where winery_ID=#{winery_ID}
+		]]>      
+	</select>
+	
+	<select id="selectWPById"  parameterType="String" resultType="WPVO">
+		<![CDATA[
+		 select * from wineproduction
+		 where WP_ID=#{wP_ID}
+		]]>      
+	</select>
+	
+	<select id="selectWTById"  parameterType="String" resultType="WTVO">
+		<![CDATA[
+		 select * from winetrade
+		 where WT_ID=#{wT_ID}
+		]]>      
+	</select>
+	
+	<update id="WPUpdate" parameterType="WPVO">
+		<![CDATA[
+		 update wineproduction set category_ID=#{category_ID},year=#{year},amount=#{amount},winery_ID=#{winery_ID}
+		 where WP_ID=#{WP_ID}
+		]]>  
+	</update>
+	
+	<update id="WTUpdate" parameterType="WTVO">
+		<![CDATA[
+		 update winetrade set category_ID=#{category_ID},year=#{year},amount=#{amount},winery_ID=#{winery_ID}
+		 where WT_ID=#{WT_ID}
+		]]>  
+	</update>
+	
+	<select id="vineyardTotalArea"  parameterType="String" resultType="vineyardTotalVO">
+		<![CDATA[
+		 select sum(area) as totalArea from field where vineyard_ID=#{vineyard_ID}
+		]]>      
+	</select>
+	
+	<select id="vineyardTotalGP"  parameterType="String" resultType="vineyardTotalVO">
+		<![CDATA[
+		 select sum(amount)as totalGP from(select field.vineyard_ID as v,field.field_ID,grapeproduction.amount as amount from field inner join grapeproduction
+		 on field.field_ID = grapeproduction.field_ID)as GP where v=#{vineyard_ID};
+		]]>      
+	</select>
+	
+	<select id="vineyardTotalGT"  parameterType="String" resultType="vineyardTotalVO">
+		<![CDATA[
+		 select sum(amount) as totalGT from grapetrade 
+		 where vineyard_ID=#{vineyard_ID}
+		]]>      
+	</select>
+	
+	<select id="thisYearGP"  parameterType="java.util.HashMap" resultType="grapeProductionVO">
+		<![CDATA[
+		select sum(amount)as amount from(select field.vineyard_ID as v,field.field_ID,grapeproduction.year as year,grapeproduction.amount as amount
+		 from field inner join grapeproduction
+		 on field.field_ID = grapeproduction.field_ID)as GP where v=#{vineyard_ID} and year=#{year} 
+		]]>      
+	</select>
+	
+	<select id="selectFieldByVineyard"  parameterType="String" resultType="fieldVO">
+		<![CDATA[
+		 select * from field where vineyard_ID=#{vineyard_ID}
+		]]>      
+	</select>
+	
+	<update id="sellField" parameterType="buyNewFieldVO">
+		<![CDATA[
+		 update field set vineyard_ID=#{vineyard_ID}
+		 where field_ID=#{field_ID}
+		]]>  
+	</update>
+	
+	<update id="buyField" parameterType="buyNewFieldVO">
+		<![CDATA[
+		 update vineyard set money = money-(select area from field where field_ID=#{field_ID})*10
+		 where vineyard_ID=#{vineyard_ID};
+		]]>  
+	</update>
+	
+	<select id="sumAllWP"  parameterType="String" resultType="productionSumVO">
+		<![CDATA[
+		 select sum(amount) as amount from wineproduction
+		 where winery_ID=#{winery_ID}
+		]]>      
+	</select>
+	
+	<select id="sumAllWT"  parameterType="String" resultType="tradeSumVO">
+		<![CDATA[
+		 select sum(amount) as amount from winetrade
+		 where winery_ID=#{winery_ID}
+		]]>      
+	</select>
+
+</mapper>
