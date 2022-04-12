@@ -441,3 +441,19 @@
 
 * 해당 와인 양조장 총 와인 생산량 출력
 * 해당 와인 양조장 총 와인 거래량 출력
+
+
+
+# DB 설계
+
+<br>
+
+## ER-Diagram
+
+![image-20220107161913591](md-images/image-20220107161913591.png)
+
+<br>
+
+## Relational Schema
+
+![image-20220107163940120](md-images/image-20220107163940120.png)
